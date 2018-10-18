@@ -9,8 +9,8 @@ public class Reina {
 	ArrayList<Integer> conflictos;
 
 	public Reina(int fil, int col) {
-		this.fil = fil;
-		this.col = col;
+		this.fil = fil-1;
+		this.col = col-1;
 		conflictos = new ArrayList<Integer>();
 	}
 
