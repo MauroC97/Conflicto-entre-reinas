@@ -14,10 +14,10 @@ public class Tablero {
 	int[][] matriz_tablero;
 
 	public Tablero(int dimensiones, int cant_reinas, ArrayList<Reina> reinas) {
-		this.dimensiones = dimensiones;
+		this.dimensiones = dimensiones-1;
 		this.cant_reinas = cant_reinas;
 		this.reinas = reinas;
-		this.matriz_tablero = new int[dimensiones][dimensiones];
+		this.matriz_tablero = new int[dimensiones+1][dimensiones+1];
 	}
 
 	public static Tablero cargar(String input) throws IOException {
@@ -42,7 +42,6 @@ public class Tablero {
 		ArrayList<Integer> conf_enc = new ArrayList<Integer>();
 		for(i=0;i<this.cant_reinas;i++){
 		Reina act = this.reinas.get(i);
-		this.dimensiones--;
 		/*chequeo las 8 direcciones que rodean la reina, una x una, en la matriz donde las ubique*/
 		/*cargo cada conflicto que encuentro en un array, y los proceso despues*/
 		fil=act.fil-1;
@@ -143,10 +142,7 @@ public class Tablero {
 		/*fin check*/
 		/*proceso conflictos, mirando que no lo haya contado antes*/
 		for(int x:conf_enc){
-			Reina r = this.reinas.get(x-1);
-			if(!r.existe_conflicto(i+1)) {
 				act.conflicto_con(x);
-			}
 		}
 		conf_enc.clear();
 		}

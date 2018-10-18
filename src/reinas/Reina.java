@@ -13,14 +13,14 @@ public class Reina {
 		this.col = col-1;
 		conflictos = new ArrayList<Integer>();
 	}
-
+/*
 	public boolean existe_conflicto(int nro_reina) {// usarlo llamando desde la reina encontrada preguntando por la reina que chequea el conflicto
 		for (Integer x : this.conflictos)
 			if (nro_reina == x)
 				return true;
 		return false;
 	}
-
+*/
 	public void conflicto_con(int nro_reina) {
 			conflictos.add(nro_reina);
 			Collections.sort(this.conflictos);
